@@ -46,6 +46,8 @@ class SQSTransport(Transport):
         Note: This will simply raise any Boto ClientErrors that are encountered.
         """
         if not self.queue_url:
+            print(self.sqs_name)
+            print(self.sqs_account)
             self.queue_url = self.sqs_client.get_queue_url(QueueName=self.sqs_name,
                                                            QueueOwnerAWSAccountId=self.sqs_account)["QueueUrl"]
 
